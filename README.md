@@ -1,5 +1,7 @@
 # mermaid-test
 
+## test
+
 ```mermaid
 graph TD
     s((start)):::startend --> load-conf[加载配置文件]
@@ -13,7 +15,7 @@ graph TD
         elect_or_not -- No --> start-loop[开启循环]
 
         subgraph "init-server"
-            connect-db[初始数据库连接] --> init-informer[初始Cluster缓存池] --> init-global-manager -. 异步 .-> start-http-server[启动接口Http服务，并注册路由]
+            connect-db[初始数据库连接] --> init-informer[初始Cluster缓存池] --> init-global-manager -. 异步 .-> start-http-server[启动接口Http服务, 并注册路由]
         end
     end
 
@@ -23,7 +25,7 @@ graph TD
     end
 
     subgraph "init-informer"
-        load-cluster-db[从数据库加载所有运行或挂起状态的集群] -- 遍历 --> init-cluster-informer[初始化集群上的Pod、Node缓存] -- 遍历 --> check-informer-synced[检查Informer是否缓存成功]
+        load-cluster-db[从数据库加载所有运行或挂起状态的集群] -- 遍历 --> init-cluster-informer[初始化集群上的Pod, Node缓存] -- 遍历 --> check-informer-synced[检查Informer是否缓存成功]
     end
 
     subgraph "start-loop"
@@ -41,7 +43,7 @@ graph TD
     end
 
     subgraph "check-release-status-task"
-        load-instance-count-from-db[从DB中查询JvessInstance的数量] -- 根据JvessInstance数量和配置并行数量 --> check-controller-version-concurrent[并行检查每个JvessInstance所在集群上的控制器版本并据此检查、更新Release状态]
+        load-instance-count-from-db[从DB中查询JvessInstance的数量] -- 根据JvessInstance数量和配置并行数量 --> check-controller-version-concurrent[并行检查每个JvessInstance所在集群上的控制器版本并据此检查, 更新Release状态]
     end
 
     subgraph "stop-server"
